@@ -1,5 +1,6 @@
 package com.saber;
 
+import android.app.ActivityGroup;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -9,14 +10,35 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TabHost;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActivityGroup {
 
     final int OVERLAY_PERMISSION_REQ_CODE = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TabHost tabHost = (TabHost)findViewById(R.id.tabhost);
+        tabHost.setup(this.getLocalActivityManager());
+
+        TabHost.TabSpec tab1 = tabHost.newTabSpec("First Tab");
+
+        Log.d("saber", tab1.toString());
+        tab1.setContent(R.id.ll_tab1);
+        tab1.setIndicator("Tab1");
+        tabHost.addTab(tab1);
+
+        TabHost.TabSpec tab2 = tabHost.newTabSpec("Second Tab");
+        tab2.setContent(new Intent(this, Main2Activity.class));
+        tab2.setIndicator("Tab2");
+        tabHost.addTab(tab2);
+
+        TabHost.TabSpec tab3 = tabHost.newTabSpec("Third Tab");
+        tab3.setContent(R.id.ll_tab3);
+        tab3.setIndicator("Tab3");
+        tabHost.addTab(tab3);
 
         Button btn = (Button)findViewById(R.id.button);
 

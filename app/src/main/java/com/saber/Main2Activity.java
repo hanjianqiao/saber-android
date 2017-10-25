@@ -30,8 +30,8 @@ public class Main2Activity extends Activity implements DefaultHardwareBackBtnHan
         mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
-                .setBundleAssetName("main.jsbundle")
-                .setJSMainModulePath("index")
+                //.setBundleAssetName("main.jsbundle")
+                .setJSMainModulePath("2")
                 //.setJSBundleFile("assets://main.jsbundle")
                 .addPackage(new MainReactPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
