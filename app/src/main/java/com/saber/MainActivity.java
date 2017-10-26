@@ -1,6 +1,8 @@
 package com.saber;
 
+import android.app.Activity;
 import android.app.ActivityGroup;
+import android.app.LocalActivityManager;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -12,16 +14,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
 
-public class MainActivity extends ActivityGroup {
+import static android.R.attr.host;
+
+public class MainActivity extends Activity {
 
     final int OVERLAY_PERMISSION_REQ_CODE = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         TabHost tabHost = (TabHost)findViewById(R.id.tabhost);
-        tabHost.setup(this.getLocalActivityManager());
+        LocalActivityManager mLocalActivityManager = new LocalActivityManager(this, false);
+        mLocalActivityManager.dispatchCreate(savedInstanceState);
+        tabHost.setup(mLocalActivityManager);
 
         TabHost.TabSpec tab1 = tabHost.newTabSpec("First Tab");
 
