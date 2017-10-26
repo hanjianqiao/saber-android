@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.app.FragmentTabHost
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/tabhost"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent" >
@@ -18,46 +19,6 @@
             android:padding="5dp"
             android:layout_weight="1"
             android:layout_above="@android:id/tabs">
-
-            <LinearLayout
-                android:id="@+id/ll_tab1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical" >
-
-                <Button
-                    android:id="@+id/button"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="btn"
-                    android:text="Button" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_tab2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="btn"
-                    android:text="Button" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/ll_tab3"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:contentDescription="btn"
-                    android:text="Button" />
-            </LinearLayout>
         </FrameLayout>
         <TabWidget
             android:id="@android:id/tabs"
@@ -67,4 +28,4 @@
             android:layout_alignParentBottom="true"/>
     </RelativeLayout>
 
-</TabHost>
+</android.support.v4.app.FragmentTabHost>
