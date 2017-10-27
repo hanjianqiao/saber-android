@@ -8,11 +8,14 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 
 import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.common.LifecycleState;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
 import com.facebook.react.shell.MainReactPackage;
 
+import java.util.Arrays;
+import java.util.List;
 
 public class Main2Activity extends Activity implements DefaultHardwareBackBtnHandler {
     private ReactRootView mReactRootView;
@@ -37,11 +40,18 @@ public class Main2Activity extends Activity implements DefaultHardwareBackBtnHan
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
+
+        mReactInstanceManager.registerAdditionalPackages(getPackages());
+
         mReactRootView.startReactApplication(mReactInstanceManager, "saber", null);
 
         setContentView(mReactRootView);
     }
 
+    protected List<ReactPackage> getPackages() {
+        return Arrays.<ReactPackage>asList(
+                new BackManagerReactPackage()); // <-- Add this line with your package name.
+    }
     @Override
     public void invokeDefaultOnBackPressed() {
         super.onBackPressed();
