@@ -58,3 +58,7 @@ freeline_project_description.json
 # Mac
 .DS_Store
 
+# React Native
+*.jsbundle
+*.jsbundle.meta
+

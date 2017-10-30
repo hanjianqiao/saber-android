@@ -29,6 +29,6 @@ public class BackManager extends ReactContextBaseJavaModule {
     @ReactMethod
     public void popLastViewController() {
         Log.d("saber", "called back");
-        ((AppCompatActivity)getCurrentActivity()).finish();
+        getCurrentActivity().finish();
     }
 }
