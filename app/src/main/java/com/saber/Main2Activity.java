@@ -35,9 +35,9 @@ public class Main2Activity extends Activity implements DefaultHardwareBackBtnHan
         // Create jsbundle by: react-native bundle --platform android --dev false --assets-dest saber-android/app/src/main/res-rn/ --entry-file 2.js --bundle-output saber-android/app/src/main/assets/2.jsbundle
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
-                .setBundleAssetName("2.jsbundle")
-                //.setJSMainModulePath("2")
-                //.setJSBundleFile("assets://main.jsbundle")
+                //.setBundleAssetName("2.jsbundle") /* local jsbundle */
+                .setJSMainModulePath("2") /* online jsbundle */
+                //.setJSBundleFile("assets://2.jsbundle") /* local jsbundle */
                 .addPackage(new MainReactPackage())
                 .setUseDeveloperSupport(BuildConfig.DEBUG)
                 .setInitialLifecycleState(LifecycleState.RESUMED)
